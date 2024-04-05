@@ -1,0 +1,54 @@
+.baptismContainer{
+    min-height: 350px;
+    width :100%;
+    padding: 60px;
+
+}
+.categoryText{
+    color: black;
+    font-size: 24px;
+    font-weight: 600;
+}
+.viewAllText{
+    color: black;
+    font-size: 18px;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.categorySubContainer{
+    min-height: 300px;
+    width :100%;
+    margin-top: 30px;
+    display: flex;
+    gap : 80px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+}
+.cardContainer{
+    height: 333px;
+    width :247px;
+    /* border: black 1px solid; */
+    background-color: rgba(225, 243, 242, 0.39);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* align-items: center; */
+    margin-left: 30px;
+}
+.categoryName{
+    color: black;
+    font-size: 20px;
+    font-weight: 300;
+    margin-left: 10px;
+}
+.categoryRate{
+    color: black;
+    font-size: 20px;
+    font-weight: 800;
+    margin-left: 10px;
+
+}

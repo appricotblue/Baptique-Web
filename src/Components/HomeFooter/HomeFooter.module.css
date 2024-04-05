@@ -1,0 +1,54 @@
+.footerContainer{
+    height: 330px;
+    width :100%;
+    padding: 60px;
+    background-color: #19201F;
+}
+.logoContainer{
+    padding-left: 10px;
+
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+}
+.detailsCard{
+    height: 150px;
+    width :150px;
+}
+.headingText{
+    color:  #60A7A1;
+    font-weight: 900;
+}
+.contentText{
+    color:  white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.addressText{
+    color:  white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.addressHead{
+    color:  #60A7A1;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+.bottomContainer{
+    height: 50px;
+    width: 97%;
+    margin-top: 65px;
+    display: flex;
+    align-items: center;
+}
+.bottomText{
+    color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.bottomColouredText{
+    color: #60A7A1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
