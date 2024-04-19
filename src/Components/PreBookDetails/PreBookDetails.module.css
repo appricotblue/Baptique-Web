@@ -4,7 +4,6 @@
     display: flex;
 }
 .mainContainer{
-    height: 800px;
     width: 100%;
     border-bottom-width: 50px;
     border-color: black;
@@ -17,31 +16,26 @@
     justify-content: center;
     display: flex;
 }
-
 .imageContainer{
-    height: 550px;
+    height: 750px;
     width: 700px;
     display: flex;
     background-color: #F4F4F4;
     align-items: center;
     justify-content: center;
-
-
 }
 .contentContainer{
-    height: 550px;
+    height: 750px;
     width: 700px;
     /* display: flex; */
     background-color: #F4F4F4;
     padding: 40px;
 }
 .descriptionContainer{
-    height: 280px;
+    margin-top: 200px;
     width: 1400px;
     margin-left: 70px;
     padding: 40px;
-
-
 }
 .descriptionHeading{
     margin-bottom: 20px;

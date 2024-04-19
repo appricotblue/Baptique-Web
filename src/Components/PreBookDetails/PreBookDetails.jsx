@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Style from "./ProductDetails.module.css";
+import Style from "./PreBookDetails.module.css";
 import ArrowLeftSVG from "../../assets/svg/ArrowLeftSVG.svg";
 import PlusSVG from "../../assets/svg/PlusSVG.svg";
 import MinusSVG from "../../assets/svg/MinusSVG.svg";
@@ -9,7 +9,7 @@ import BaptismPNG from "../../assets/png/BaptismPNG.png";
 import { CustomModal } from "../CustomModal";
 import CustomButton from "../CustomButton/CustomButton";
 
-function ProductDetail() {
+function PreBookDetails() {
   const [counter, setCounter] = useState(0);
   const [openModal, setOpenModal] = useState(false);
 
@@ -89,18 +89,17 @@ function ProductDetail() {
             <div className={Style.sizeContainerStyle}>
               <p>6-9 Months</p>
             </div>
-          </div>
-          <div className={Style.yearRow}>
             <div className={Style.sizeContainerStyle}>
-              <p>1 Year</p>
+              <p>1 Y</p>
             </div>
             <div className={Style.sizeContainerStyle}>
-              <p>2 Years</p>
+              <p>2 Y</p>
             </div>
             <div className={Style.sizeContainerStyle}>
-              <p>3 Years</p>
+              <p>3 Y</p>
             </div>
           </div>
+
           <div className={Style.sizeRow}>
             <p className={Style.headerText}>Select Color</p>
           </div>
@@ -109,8 +108,25 @@ function ProductDetail() {
             <div className={Style.colorContainer}></div>
             <div className={Style.colorContainer}></div>
           </div>
+          <p className={Style.headerText}>Add Note</p>
+
+          <div style={{ display: "flex", marginTop: 20, marginBottom: 20 }}>
+            <textarea
+              style={{
+                border: "none",
+                outline: "none",
+                padding: "20px",
+                fontFamily: "inherit",
+                resize: "none",
+              }}
+              name=""
+              id=""
+              cols="70"
+              rows="5"
+            ></textarea>
+          </div>
           <CustomButton
-            text={"Show Intrest"}
+            text={"Pre Book"}
             onClick={() => setOpenModal(!openModal)}
           />
         </div>
@@ -152,4 +168,4 @@ function ProductDetail() {
   );
 }
 
-export default ProductDetail;
+export default PreBookDetails;

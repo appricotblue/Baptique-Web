@@ -1,0 +1,15 @@
+.container{
+    height: 45px;
+    width: 195px;
+    background-color: #60A7A1;
+    border-radius: 17px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 10;
+    padding: 10;
+}
+
+.buttonText{
+    color: white;
+}
