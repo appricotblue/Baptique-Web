@@ -4,6 +4,7 @@ import ArrowLeftSVG from "../../assets/svg/ArrowLeftSVG.svg";
 import PlusSVG from "../../assets/svg/PlusSVG.svg";
 import MinusSVG from "../../assets/svg/MinusSVG.svg";
 import ImgBig from "../../assets/png/ImgBig.png";
+import { useNavigate } from "react-router-dom";
 
 import BaptismPNG from "../../assets/png/BaptismPNG.png";
 import { CustomModal } from "../CustomModal";
@@ -12,6 +13,7 @@ import CustomButton from "../CustomButton/CustomButton";
 function PreBookDetails() {
   const [counter, setCounter] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  const navigate = useNavigate();
 
   const counterSum = () => {
     value = setCounter + 1;
@@ -127,7 +129,7 @@ function PreBookDetails() {
           </div>
           <CustomButton
             text={"Pre Book"}
-            onClick={() => setOpenModal(!openModal)}
+            onClick={() => navigate("/myOrders")}
           />
         </div>
       </div>
@@ -160,7 +162,6 @@ function PreBookDetails() {
           nulla neque elementum at. Id malesuada ac est.
         </p>
       </div>
-      <CustomModal open={openModal} setOpen={setOpenModal} />
       <div
         style={{ width: "100%", height: "1px", backgroundColor: "black" }}
       ></div>

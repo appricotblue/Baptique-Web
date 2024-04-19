@@ -4,6 +4,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import HomeScreen from "./Pages/HomeScreen";
 import ProductDetails from "./Pages/ProductDetails";
 import PreBook from "./Pages/PreBook";
+import MyOrders from "./Pages/MyOrdersScreen";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -23,6 +24,7 @@ function App() {
         <Route path="/" element={<HomeScreen />}></Route>
         <Route path="/details" element={<ProductDetails />}></Route>
         <Route path="/prebook" element={<PreBook />}></Route>
+        <Route path="/myOrders" element={<MyOrders />}></Route>
       </Routes>
     </>
   );
