@@ -1,20 +1,18 @@
 import React, { useEffect } from "react";
 import HomeHeader from "../Components/HomeCarousal/HomeHeader";
-
+import ProductDetail from "../Components/ProductDetails/ProductDetail";
 import SimilarProducts from "../Components/SimilarProducts/SimilarProducts";
-import HomeFooter from "../Components/HomeFooter/HomeFooter";
-import PreBookDetails from "../Components/PreBookDetails/PreBookDetails";
-import MyOrderScreen from "../Components/MyOrders/MyOrderScreen";
 import CommonFooter from "../Components/CommonFooter/CommonFooter";
+import CheckoutScreens from "../Components/Checkout/CheckoutScreens";
 
-function MyOrders() {
+function CheckoutScreen() {
   return (
     <div style={{ backgroundColor: "white" }}>
       <HomeHeader />
-      <MyOrderScreen />
+      <CheckoutScreens />
       <CommonFooter />
     </div>
   );
 }
 
-export default MyOrders;
+export default CheckoutScreen;

@@ -1,0 +1,15 @@
+.Container{
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+margin-top: auto;
+    border-top: black 1px solid;
+}
+.footerText{
+    color: #60A7A1;
+    text-underline-position: below;
+    margin-left: 20px;
+    margin-right: 20px;
+}

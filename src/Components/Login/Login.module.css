@@ -1,0 +1,30 @@
+.Container{
+    height: 100vh;
+    width :100%;
+    justify-content: center;
+}
+.header{
+    height: 50px;
+    width: 100%;
+    background-color: #BE5F2D;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    display: flex;
+    margin-bottom: 50px;
+}
+.headerText{
+    font-weight: 800;
+    color: white;
+    margin-right: 10px;
+}
+.CardContainer{
+    height: 400px;
+    width: 400px;
+    padding: 30px;
+}
+.registerText{
+    font-size: 25px;
+    font-weight: 900;
+    color: black;
+}
