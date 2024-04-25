@@ -33,8 +33,8 @@ function Login() {
           justifyContent: "center",
         }}
       >
-        <RegisterCard />
-        {/* <OtpCard /> */}
+        {/* <RegisterCard /> */}
+        <OtpCard />
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Style from "./Login.module.css";
 import CustomButton from "../CustomButton/CustomButton";
+import OtpInput from "react-otp-input";
 
 function OtpCard() {
+  const [otp, setOtp] = useState("");
   return (
     <div className={Style.CardContainer}>
       <div
@@ -37,9 +39,20 @@ function OtpCard() {
           marginBottom: "35px",
         }}
       >
-        <div
+        {/* <div
           style={{ height: "40px", width: "290px", backgroundColor: "grey" }}
-        ></div>
+        ></div> */}
+        <OtpInput
+          value={otp}
+          onChange={setOtp}
+          inputStyle={{
+            width: "30px",
+            height: "30px",
+          }}
+          numInputs={4}
+          renderSeparator={<span>-</span>}
+          renderInput={(props) => <input {...props} />}
+        />
       </div>
       <div
         style={{

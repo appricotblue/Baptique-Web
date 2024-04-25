@@ -68,7 +68,13 @@ function CheckoutScreens() {
             </div>
           </div>
 
-          <p style={{ fontWeight: "bold", marginBottom: "15px" }}>
+          <p
+            style={{
+              fontWeight: "bold",
+              marginBottom: "15px",
+              marginTop: "15px",
+            }}
+          >
             Price Details
           </p>
           <div className={Style.itemContainer}>
@@ -93,7 +99,16 @@ function CheckoutScreens() {
               </div>
             </div>
           </div>
-          <p style={{ fontWeight: "bold", marginBottom: "15px" }}>Payment</p>
+
+          <p
+            style={{
+              fontWeight: "bold",
+              marginBottom: "15px",
+              marginTop: "15px",
+            }}
+          >
+            Payment
+          </p>
           <div className={Style.payTypeContainer}>
             <div
               style={{
