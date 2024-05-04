@@ -7,6 +7,7 @@ import PreBook from "./Pages/PreBook";
 import MyOrders from "./Pages/MyOrdersScreen";
 import CheckoutScreen from "./Pages/CheckoutScreen";
 import LoginScreen from "./Pages/LoginScreen";
+import { getBanner } from "./Service/Index";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -19,6 +20,8 @@ function ScrollToTop() {
 }
 
 function App() {
+
+
   return (
     <>
       <ScrollToTop />

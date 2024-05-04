@@ -11,4 +11,10 @@ body{
     box-sizing: border-box;
 }
 
+.legend{
+    background-color: transparent !important;
+    bottom: 40% !important;
+    width: 35% !important;
+}
+
 @import "react-alice-carousel/lib/alice-carousel.css";

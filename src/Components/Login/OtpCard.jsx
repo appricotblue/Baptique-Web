@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Style from "./Login.module.css";
 import CustomButton from "../CustomButton/CustomButton";
 import OtpInput from "react-otp-input";
+import { verifyOtp } from "../../Service/Index";
 
 function OtpCard() {
+
   const [otp, setOtp] = useState("");
+  const [verifyOtpNumber, setVerifyOtpNumber] = useState("");
+
+  const otpVerify = async () => {
+    const PAYLOAD = {
+      mobilenumber: "919092568089",
+      otp: "834313"
+    }
+    const response = await verifyOtp(PAYLOAD)
+    setVerifyOtpNumber(response)
+    console.log(response, 'resp------')
+  }
+
+  useEffect(() => {
+    otpVerify()
+  }, [])
+
   return (
     <div className={Style.CardContainer}>
       <div
@@ -49,7 +67,7 @@ function OtpCard() {
             width: "30px",
             height: "30px",
           }}
-          numInputs={4}
+          numInputs={6}
           renderSeparator={<span>-</span>}
           renderInput={(props) => <input {...props} />}
         />

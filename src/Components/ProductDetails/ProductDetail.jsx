@@ -14,9 +14,14 @@ function ProductDetail() {
   const [openModal, setOpenModal] = useState(false);
 
   const counterSum = () => {
-    value = setCounter + 1;
-    setCounter(value);
+    const value = counter + 1
+    setCounter(value)
   };
+  const counterSub = () => {
+    const value = counter - 1
+    setCounter(value)
+  };
+
 
   return (
     <div className={Style.mainContainer}>
@@ -43,19 +48,20 @@ function ProductDetail() {
           <div className={Style.rateCountContainer}>
             <p className={Style.headerText}>₹1200</p>
             <div
-              onClick={() => counterSum()}
               className={Style.counterContainer}
             >
               <img
                 src={MinusSVG}
                 alt=""
                 style={{ height: "13px", width: "13px" }}
+                onClick={counterSub}
               />
               <p className={Style.headerText}>{counter}</p>
               <img
                 src={PlusSVG}
                 alt=""
                 style={{ height: "13px", width: "13px" }}
+                onClick={counterSum}
               />
             </div>
           </div>
