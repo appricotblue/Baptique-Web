@@ -10,224 +10,239 @@ import HouseSVG from "../../assets/svg/HouseSVG.svg";
 import CustomButton from "../CustomButton/CustomButton";
 import { useNavigate } from "react-router-dom";
 import BaptismPNG1 from "../../assets/png/BaptismPNG1.png";
+import { useMediaQuery } from "@mui/material";
 
 function CheckoutScreens() {
   const navigate = useNavigate();
+  const matches = useMediaQuery('(min-width:600px)');
 
   return (
     <div className={Style.mainContainer}>
       <div>
-        <div className={Style.Container}>
-          <div className={Style.arrowContainer}>
-            <img
-              src={ArrowLeftSVG}
-              alt=""
-              style={{ height: "30px", width: "30px" }}
-            />
-          </div>
-          <div className={Style.textContainer}>
-            <p className={Style.checkoputText}>Check Out</p>
-          </div>
-        </div>
-        <div
-          style={{
-            height: "750px",
-            width: "750px",
-            padding: "30px",
-            paddingLeft: "90px",
-          }}
-        >
-          <p style={{ fontWeight: "bold", marginBottom: "15px" }}>
-            Item Summary
-          </p>
-          <div className={Style.itemContainer}>
-            <div style={{ display: "flex" }}>
-              <img
-                src={BaptismPNG1}
-                alt=""
-                style={{ width: "120px", height: "130px" }}
-              />
-              <div className={Style.contentContainer}>
-                <p style={{ marginBottom: "15px" }}>Order Id : B1234WQE</p>
-                <div className={Style.row1}>
-                  <p style={{ fontWeight: "bold", marginBottom: "15px" }}>
-                    Princes Bow Dress
-                  </p>
-                  <p style={{ color: "black", fontWeight: "bold" }}>₹1200</p>
-                </div>
-
-                <div className={Style.row1}>
-                  <p>Small</p>
-                  <p>White</p>
-                </div>
-                <div className={Style.row1}>
-                  <p>3-6 Months</p>
-                  <p>1 Pc</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "25px" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              gap: "50px",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gap: "20px",
+              }}
+            >
+              <p style={{ fontWeight: "bold" }}>Item Summary</p>
+              <div className={Style.itemContainer}>
+                <div
+                  style={{ display: "flex", gap: "30px", alignItems: "center" }}
+                >
+                  <img
+                    src={BaptismPNG1}
+                    style={{ width: "120px", height: "130px" }}
+                  />
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "10px",
+                      width: matches && '500px'
+                    }}
+                  >
+                    <p>Order Id : B1234WQE</p>
+                    <div className={Style.row1}>
+                      <p style={{ fontWeight: "bold" }}>Princes Bow Dress</p>
+                      <p style={{ color: "black", fontWeight: "bold" }}>
+                        ₹1200
+                      </p>
+                    </div>
+                    <div className={Style.row1}>
+                      <p>Small</p>
+                      <p>White</p>
+                    </div>
+                    <div className={Style.row1}>
+                      <p>3-6 Months</p>
+                      <p>1 Pc</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <p
-            style={{
-              fontWeight: "bold",
-              marginBottom: "15px",
-              marginTop: "15px",
-            }}
-          >
-            Price Details
-          </p>
-          <div className={Style.itemContainer}>
-            <div style={{ display: "flex" }}>
-              <div className={Style.priceDetailsContainer}>
-                <div className={Style.row2}>
-                  <p>Total MRP</p>
-                  <p>₹3600</p>
-                </div>{" "}
-                <div className={Style.row2}>
-                  <p>Discount</p>
-                  <p>₹400</p>
-                </div>
-                <div className={Style.row2}>
-                  <p>Delivery Charges</p>
-                  <p>₹100</p>
-                </div>
-                <div className={Style.row2}>
-                  <p>Total Amount</p>
-                  <p>₹3300</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <p
-            style={{
-              fontWeight: "bold",
-              marginBottom: "15px",
-              marginTop: "15px",
-            }}
-          >
-            Payment
-          </p>
-          <div className={Style.payTypeContainer}>
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-between",
-                width: "500px",
-                alignItems: "center",
+                flexDirection: "column",
+                gap: "22px",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <img
-                  src={GpaySVG}
-                  alt=""
-                  style={{ height: "50px", width: "50px" }}
-                />
-                <p>G Pay</p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <span style={{ fontWeight: "bold" }}>Delivery Address</span>
+                <span
+                  style={{
+                    fontWeight: "bold",
+                    color: "#60A7A1",
+                  }}
+                >
+                  Add Address
+                </span>
               </div>
-              <img
-                src={RadioButtonTSVG}
-                alt=""
-                style={{ height: "27px", width: "27px" }}
-              />
+
+              <div className={Style.addressContainer}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "10px",
+                    }}
+                  >
+                    <img
+                      src={RadioButtonTSVG}
+                      alt=""
+                      style={{ height: "27px", width: "27px" }}
+                    />
+                    <p>Home Address</p>
+                  </div>
+
+                  <img
+                    src={EditSVG}
+                    alt=""
+                    style={{ height: "27px", width: "27px" }}
+                  />
+                </div>
+
+                <div />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <img
+                    src={PhoneSVG}
+                    alt=""
+                    style={{ height: "27px", width: "27px" }}
+                  />
+                  <p>+91 {"9874563211"}</p>
+                </div>
+                <div />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                  }}
+                >
+                  <img
+                    src={PhoneSVG}
+                    alt=""
+                    style={{ height: "27px", width: "27px" }}
+                  />
+                  <p>C104, Skyline Apartments, Nethaji Road, Kakkanad</p>
+                </div>
+              </div>
             </div>
           </div>
-          <div style={{ height: "10px" }} />
-          <div style={{ marginLeft: "170px" }}>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "20px",
+            }}
+          >
+            <p
+              style={{
+                fontWeight: "bold",
+                marginBottom: "15px",
+                marginTop: "15px",
+              }}
+            >
+              Price Details
+            </p>
+
+            <div className={Style.itemContainer}>
+              <div className={Style.row2}>
+                <p>Total MRP</p>
+                <p>₹3600</p>
+              </div>{" "}
+              <div className={Style.row2}>
+                <p>Discount</p>
+                <p>₹400</p>
+              </div>
+              <div className={Style.row2}>
+                <p>Delivery Charges</p>
+                <p>₹100</p>
+              </div>
+              <div className={Style.row2}>
+                <p>Total Amount</p>
+                <p>₹3300</p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "20px",
+            }}
+          >
+            <p
+              style={{
+                fontWeight: "bold",
+                marginBottom: "15px",
+                marginTop: "15px",
+              }}
+            >
+              Payment
+            </p>
+            <div className={Style.payTypeContainer}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  width:'100%'
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap:'10px' }}>
+                  <img
+                    src={GpaySVG}
+                    alt=""
+                    style={{ height: "50px", width: "50px" }}
+                  />
+                  <p>G Pay</p>
+                </div>
+                <img
+                  src={RadioButtonTSVG}
+                  alt=""
+                  style={{ height: "27px", width: "27px" }}
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBlock: "50px",
+            }}
+          >
             <CustomButton text={"Pay Now"} onClick={() => navigate("/login")} />
-          </div>
-        </div>
-      </div>
-
-      <div
-        style={{
-          height: "750px",
-          width: "750px",
-          padding: "30px",
-          paddingLeft: "90px",
-        }}
-      >
-        <div style={{ width: "550px", height: "50px" }} />
-        <div
-          style={{
-            width: "530px",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <p style={{ fontWeight: "bold", marginBottom: "15px" }}>
-            Delivery Address
-          </p>
-          <p
-            style={{
-              fontWeight: "bold",
-              marginBottom: "15px",
-              color: "#60A7A1",
-            }}
-          >
-            Add Address
-          </p>
-        </div>
-
-        <div className={Style.addressContainer}>
-          <div
-            style={{
-              width: "480px",
-              height: "30px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <img
-                src={RadioButtonTSVG}
-                alt=""
-                style={{ height: "27px", width: "27px" }}
-              />
-              <p>Home Address</p>
-            </div>
-
-            <img
-              src={EditSVG}
-              alt=""
-              style={{ height: "27px", width: "27px" }}
-            />
-          </div>
-          <div style={{ height: "10px" }} />
-          <div
-            style={{
-              width: "150px",
-              height: "30px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src={PhoneSVG}
-              alt=""
-              style={{ height: "27px", width: "27px" }}
-            />
-            <p>+91 {"9874563211"}</p>
-          </div>
-          <div style={{ height: "10px" }} />
-          <div
-            style={{
-              width: "380px",
-              height: "30px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <img
-              src={PhoneSVG}
-              alt=""
-              style={{ height: "27px", width: "27px" }}
-            />
-            <p>C104, Skyline Apartments, Nethaji Road, Kakkanad</p>
           </div>
         </div>
       </div>

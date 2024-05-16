@@ -16,19 +16,18 @@ import { useNavigate } from "react-router-dom";
 
 const style = {
   position: "absolute",
-  borderRadius: 5,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 600,
-  height: 400,
   bgcolor: "background.paper",
   boxShadow: 18,
   p: 4,
+  minWidth:'350px',
+  borderRadius: "30px",
 };
 
 export const CustomModal = ({ open, setOpen }) => {
-  const [selectedValue, setSelectedValue] = useState("female"); // Initialize state with default value
+  const [selectedValue, setSelectedValue] = useState("buynow");
   const navigate = useNavigate();
 
   const handleClose = () => setOpen(false);
@@ -47,36 +46,24 @@ export const CustomModal = ({ open, setOpen }) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <FormControl component="fieldset">
-            <div
+        <Box sx={{ ...style }}>
+          <FormControl>
+            <span
               style={{
-                display: "flex",
-                justifyContent: "space-between",
-                width: 550,
+                fontSize: 24,
+                fontWeight: "bold",
+                color: "black",
+                textAlign:'center',
+                marginBottom:'30px',
+                paddingInline:'20px'
               }}
             >
-              <div></div>
-              <FormLabel
-                component="legend"
-                style={{
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  color: "black",
-                }}
-              >
-                Choose Interest Option
-              </FormLabel>
-              <img
-                src={CloseSVG}
-                alt=""
-                // style={{ height: "40px", width: "40px", marginRight: "12px" }}
-              />
-            </div>
+              Choose Interest Option
+            </span>
 
             <RadioGroup
-              aria-label="gender"
-              name="gender"
+              aria-label="buyOptions"
+              name="buyOptions"
               value={selectedValue}
               onChange={handleChange}
             >
@@ -84,7 +71,7 @@ export const CustomModal = ({ open, setOpen }) => {
                 <FormControlLabel
                   value="buynow"
                   control={<Radio />}
-                  label="Buy now"
+                  label="Buy Now"
                   sx={{
                     "& .css-ahj2mt-MuiTypography-root": {
                       fontSize: "18px",
@@ -93,7 +80,7 @@ export const CustomModal = ({ open, setOpen }) => {
                     },
                   }}
                 />
-                <p
+                <div
                   style={{
                     fontSize: "15px",
                     color: "black",
@@ -102,8 +89,8 @@ export const CustomModal = ({ open, setOpen }) => {
                     marginBottom: "10px",
                   }}
                 >
-                  Take you directly to check ypur item
-                </p>
+                  Take you directly to check your item
+                </div>
               </div>
 
               <div>
@@ -161,8 +148,7 @@ export const CustomModal = ({ open, setOpen }) => {
             </RadioGroup>
             <div
               style={{
-                width: 530,
-                marginTop: 17,
+                marginTop: '30px',
                 justifyContent: "center",
                 display: "flex",
               }}

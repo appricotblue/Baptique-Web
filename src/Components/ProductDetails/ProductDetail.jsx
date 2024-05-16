@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Style from "./ProductDetails.module.css";
 import ArrowLeftSVG from "../../assets/svg/ArrowLeftSVG.svg";
 import PlusSVG from "../../assets/svg/PlusSVG.svg";
@@ -10,110 +10,130 @@ import { CustomModal } from "../CustomModal";
 import CustomButton from "../CustomButton/CustomButton";
 import { useNavigate, useParams } from "react-router-dom";
 import { ChatModal } from "../ChatModal";
+import { Box, Chip, IconButton } from "@mui/material";
+import { Minus, Plus } from "@phosphor-icons/react";
+
+const sizes = ["Small", "Medium", "Large"];
+
+const ageGroup = [
+  "0-3 Months",
+  "3-6 Months",
+  "6-9 Months",
+  "1 Year",
+  "2 Year",
+  "3 Year",
+];
 
 function ProductDetail() {
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const [openChat, setOpenChat] = useState(false);
+  const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedAge, setSelectedAge] = useState(ageGroup[0]);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const counterSum = () => {
-    const value = counter + 1
-    setCounter(value)
+    const value = counter + 1;
+    setCounter(value);
   };
   const counterSub = () => {
-    const value = counter - 1
-    setCounter(value)
+    const value = counter - 1;
+    setCounter(value);
   };
 
-  const { id } = useParams()
+  const setSize = (size) => {
+    setSelectedSize(size);
+  };
+
+  const setAge = (age) => {
+    setSelectedAge(age);
+  };
+
+  const { id } = useParams();
 
   return (
     <div className={Style.mainContainer}>
       <div className={Style.container}>
-        <div className={Style.arrowContainer}>
-          <img
-            src={ArrowLeftSVG}
-            alt=""
-            style={{ height: "30px", width: "30px" }}
-            onClick={() => navigate('/')}
-          />
-        </div>
-        <div className={Style.imageContainer}>
-          <img
-            src={ImgBig}
-            alt=""
-            style={{ width: "407px", height: "509px" }}
-          />
-        </div>
+        <img className={Style.imageContainer} src={ImgBig} alt="" />
+
         <div className={Style.contentContainer}>
-          <div className={Style.contentRow}>
-            <p className={Style.headerText}>Princes Bow Dress</p>
-            <p className={Style.headerText}>Quantity</p>
-          </div>
-          <div className={Style.rateCountContainer}>
-            <p className={Style.headerText}>₹1200</p>
-            <div
-              className={Style.counterContainer}
-            >
-              <img
-                src={MinusSVG}
-                alt=""
-                style={{ height: "13px", width: "13px" }}
-                onClick={counterSub}
-              />
-              <p className={Style.headerText}>{counter}</p>
-              <img
-                src={PlusSVG}
-                alt=""
-                style={{ height: "13px", width: "13px" }}
-                onClick={counterSum}
-              />
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+            }}
+          >
+            <div className={Style.contentRow}>
+              <p className={Style.headerText}>Princes Bow Dress</p>
+              <p className={Style.headerText}>₹1200</p>
+              <p className={Style.collectionText}>Baptism Collection</p>
+            </div>
+
+            <div className={Style.rateCountContainer}>
+              <p className={Style.headerText}>Quantity</p>
+              <div className={Style.counterContainer}>
+                <IconButton onClick={counterSub}>
+                  <Minus size={13} color="black" />
+                </IconButton>
+                <span style={{ fontSize: "18px" }}>{counter}</span>
+                <IconButton onClick={counterSum}>
+                  <Plus size={13} color="black" />
+                </IconButton>
+              </div>
             </div>
           </div>
-          <p className={Style.collectionText}>Baptism Collection</p>
 
           <div className={Style.sizeRow}>
-            <p className={Style.headerText}>Size</p>
-            <p onClick={() => setOpenChat(!openChat)}>Size Chart</p>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <p className={Style.headerText}>Size</p>
+              <p onClick={() => setOpenChat(!openChat)}>Size Chart</p>
+            </div>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+              {sizes?.map((size, ind) => (
+                <div key={ind} onClick={() => setSize(size)}>
+                  <Chip
+                    sx={{
+                      cursor: "pointer",
+                      backgroundColor: selectedSize === size && "#E1F3F2",
+                      color: selectedSize === size && "#60A7A1",
+                      fontWeight: 600,
+                    }}
+                    label={size}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={Style.sizeContainerRow}>
-            <div className={Style.sizeContainerStyle}>
-              <p>Small</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>Medium</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>Large</p>
-            </div>
-          </div>
+
           <div className={Style.sizeRow}>
             <p className={Style.headerText}>Age</p>
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "6px",
+                maxWidth: "300px",
+              }}
+            >
+              {ageGroup?.map((age, ind) => (
+                <div key={ind} onClick={() => setAge(age)}>
+                  <Chip
+                    sx={{
+                      cursor: "pointer",
+                      backgroundColor: selectedAge === age && "#E1F3F2",
+                      color: selectedAge === age && "#60A7A1",
+                      fontWeight: 600,
+                    }}
+                    label={age}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-          <div className={Style.sizeContainerRow}>
-            <div className={Style.sizeContainerStyle}>
-              <p>0-3 Months</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>3-6 Months</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>6-9 Months</p>
-            </div>
-          </div>
-          <div className={Style.yearRow}>
-            <div className={Style.sizeContainerStyle}>
-              <p>1 Year</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>2 Years</p>
-            </div>
-            <div className={Style.sizeContainerStyle}>
-              <p>3 Years</p>
-            </div>
-          </div>
+
           <div className={Style.sizeRow}>
             <p className={Style.headerText}>Select Color</p>
           </div>
@@ -157,11 +177,11 @@ function ProductDetail() {
           nulla neque elementum at. Id malesuada ac est.
         </p>
       </div>
-      <CustomModal open={openModal} setOpen={setOpenModal} />
-      <ChatModal open={openChat} setOpen={setOpenChat} />
       <div
         style={{ width: "100%", height: "1px", backgroundColor: "black" }}
       ></div>
+      <CustomModal open={openModal} setOpen={setOpenModal} />
+      <ChatModal open={openChat} setOpen={setOpenChat} />
     </div>
   );
 }

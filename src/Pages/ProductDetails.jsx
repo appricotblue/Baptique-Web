@@ -7,7 +7,9 @@ import HomeFooter from "../Components/HomeFooter/HomeFooter";
 function ProductDetails() {
   return (
     <div style={{ backgroundColor: "white" }}>
-      <HomeHeader />
+      <div style={{position:'absolute', width:'100%'}}>
+        <HomeHeader />
+      </div>
       <ProductDetail />
       <SimilarProducts />
       <HomeFooter />

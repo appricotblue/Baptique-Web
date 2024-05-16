@@ -10,7 +10,9 @@ import CommonFooter from "../Components/CommonFooter/CommonFooter";
 function MyOrders() {
   return (
     <div style={{ backgroundColor: "white" }}>
-      <HomeHeader />
+      <div style={{ position: "absolute", width: "100%" }}>
+        <HomeHeader />
+      </div>
       <MyOrderScreen />
       <CommonFooter />
     </div>

@@ -11,13 +11,6 @@ function MyOrderScreen() {
   return (
     <div className={Style.mainContainer}>
       <div className={Style.Container}>
-        <div className={Style.arrowContainer}>
-          <img
-            src={ArrowLeftSVG}
-            alt=""
-            style={{ height: "30px", width: "30px" }}
-          />
-        </div>
         <div className={Style.toggleWrapper}>
           <div className={Style.toggleContainer}>
             <p className={Style.toggleText}>Orders</p>
@@ -30,56 +23,66 @@ function MyOrderScreen() {
           </div>
         </div>
       </div>
+
       <div className={Style.itemContainer}>
-        <div style={{ display: "flex" }}>
-          <img
-            src={BaptismPNG1}
-            alt=""
-            style={{ width: "180px", height: "190px" }}
-          />
-          <div className={Style.contentContainer}>
-            <p style={{ marginBottom: "15px" }}>Order Id : B1234WQE</p>
-            <p style={{ fontWeight: "bold", marginBottom: "15px" }}>
-              Princes Bow Dress
-            </p>
-            <div className={Style.row1}>
-              <p>Small</p>
-              <p>White</p>
-            </div>
-            <div className={Style.row1}>
-              <p>3-6 Months</p>
-              <p>1 Pc</p>
-            </div>
-          </div>
-          <div className={Style.priceContainer}>
-            <div className={Style.row1}>
-              <p></p>
-              <p style={{ color: "#BD5F2A", fontWeight: "bold" }}>
-                Payment Pending
-              </p>
-            </div>
-            <div className={Style.row1}>
-              <p></p>
-              <p style={{ color: "black", fontWeight: "bold" }}>₹1200</p>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "40px",
+            width: "100%",
+          }}
+        >
+          <img src={BaptismPNG1} style={{ width: "180px", height: "190px" }} />
+
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+            }}
+          >
+            <div className={Style.contentContainer}>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <p>Order Id : B1234WQE</p>
+                <p style={{ color: "#BD5F2A", fontWeight: "bold" }}>
+                  Payment Pending
+                </p>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <p style={{ fontWeight: "bold" }}>Princes Bow Dress</p>
+                <p style={{ color: "black", fontWeight: "bold" }}>₹1200</p>
+              </div>
+
+              <div className={Style.row1}>
+                <span>Small</span>
+                <span>White</span>
+              </div>
+              <div className={Style.row1}>
+                <span>3-6 Months</span>
+                <span>1 Pc</span>
+              </div>
             </div>
           </div>
         </div>
+
         <div
           style={{
-            width: "550px",
-            height: "50px",
-            marginLeft: "210px",
-            marginTop: "-50px",
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "center",
+            flexWrap: "wrap",
             alignItems: "center",
+            gap: "20px",
+            marginTop: "30px",
           }}
         >
+          <CustomButton text={"Chat with Us"} />
           <CustomButton
             text={"Proceed to Pay"}
             onClick={() => navigate("/checkout")}
           />
-          <CustomButton text={"Chat with Us"} />
         </div>
       </div>
     </div>

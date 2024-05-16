@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Routes>
         <Route path="/" element={<HomeScreen />}></Route>
         <Route path="/details/:id" element={<ProductDetails />}></Route>

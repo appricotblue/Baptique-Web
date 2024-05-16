@@ -8,7 +8,9 @@ import PreBookDetails from "../Components/PreBookDetails/PreBookDetails";
 function PreBook() {
   return (
     <div style={{ backgroundColor: "white" }}>
-      <HomeHeader />
+      <div style={{ position: "absolute", width: "100%" }}>
+        <HomeHeader />
+      </div>
       <PreBookDetails />
       <SimilarProducts />
       <HomeFooter />
