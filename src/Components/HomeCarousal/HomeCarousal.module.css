@@ -8,13 +8,13 @@
 
 .headerRow{
     display: flex;
-    width: 95%;
-    height: 120px;
+    padding: 20px;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     margin-inline: auto;
-    /* background-color: pink; */   
 }
+
 .logoContainer{
     padding-left: 10px;
 
@@ -75,4 +75,13 @@
 .offerText{
     color: white;
     font-size: 55.3px;
+}
+
+@media(width <= 750px){
+    .textContainer{
+        display: none;
+    }
+    .iconContainer{
+        display: none;
+    }
 }

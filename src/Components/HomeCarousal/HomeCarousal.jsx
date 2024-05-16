@@ -27,10 +27,6 @@ const HomeCarousal = ({ banner }) => {
       </div> */}
 
       <div>
-        <div style={{ position: 'absolute', zIndex: '999', width: '100%', }}>
-          <HomeHeader />
-        </div>
-
         <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} stopOnHover={false}>
 
           {bannerDetails?.map((item, ind) => (
