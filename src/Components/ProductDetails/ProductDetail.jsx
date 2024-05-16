@@ -8,10 +8,15 @@ import ImgBig from "../../assets/png/ImgBig.png";
 import BaptismPNG from "../../assets/png/BaptismPNG.png";
 import { CustomModal } from "../CustomModal";
 import CustomButton from "../CustomButton/CustomButton";
+import { useNavigate, useParams } from "react-router-dom";
+import { ChatModal } from "../ChatModal";
 
 function ProductDetail() {
   const [counter, setCounter] = useState(0);
   const [openModal, setOpenModal] = useState(false);
+  const [openChat, setOpenChat] = useState(false);
+
+  const navigate = useNavigate()
 
   const counterSum = () => {
     const value = counter + 1
@@ -22,6 +27,7 @@ function ProductDetail() {
     setCounter(value)
   };
 
+  const { id } = useParams()
 
   return (
     <div className={Style.mainContainer}>
@@ -31,6 +37,7 @@ function ProductDetail() {
             src={ArrowLeftSVG}
             alt=""
             style={{ height: "30px", width: "30px" }}
+            onClick={() => navigate('/')}
           />
         </div>
         <div className={Style.imageContainer}>
@@ -69,7 +76,7 @@ function ProductDetail() {
 
           <div className={Style.sizeRow}>
             <p className={Style.headerText}>Size</p>
-            <p>Size Chart</p>
+            <p onClick={() => setOpenChat(!openChat)}>Size Chart</p>
           </div>
           <div className={Style.sizeContainerRow}>
             <div className={Style.sizeContainerStyle}>
@@ -151,6 +158,7 @@ function ProductDetail() {
         </p>
       </div>
       <CustomModal open={openModal} setOpen={setOpenModal} />
+      <ChatModal open={openChat} setOpen={setOpenChat} />
       <div
         style={{ width: "100%", height: "1px", backgroundColor: "black" }}
       ></div>

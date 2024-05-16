@@ -7,7 +7,7 @@ import HomeFooter from '../Components/HomeFooter/HomeFooter'
 import { getAll } from '../Service/Index'
 
 const HomeScreen = () => {
-  const [allItem, setAllItem] = useState('')
+  const [allItem, setAllItem] = useState()
 
   const getAllDetails = async () => {
     const response = await getAll()
@@ -21,10 +21,10 @@ const HomeScreen = () => {
   }, [])
   return (
     <div>
-      <HomeCarousal />
-      <HomeCategory category={allItem.categories} />
-      <BaptismItems product={allItem.products} />
-      <DemandItems />
+      <HomeCarousal banner={allItem?.banner} />
+      <HomeCategory category={allItem?.categories} />
+      <BaptismItems product={allItem?.products} />
+      <DemandItems demand={allItem?.demands} />
       <HomeFooter />
 
     </div>

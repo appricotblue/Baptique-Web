@@ -4,19 +4,15 @@ import BaptismPNG1 from '../../assets/png/BaptismPNG1.png'
 import BaptismPNG2 from '../../assets/png/BaptismPNG2.png'
 import { useNavigate } from 'react-router-dom'
 
-
-
-
-
 const data = [
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG1 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG2 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG1 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG2 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG1 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG2 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG1 },
-  { name: 'Princess Bow Dress', rate: '₹1200', image: BaptismPNG2 },]
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG1 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG2 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG1 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG2 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG1 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG2 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG1 },
+  { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG2 },]
 
 
 function BaptismItems({ product }) {
@@ -32,9 +28,10 @@ function BaptismItems({ product }) {
       <div className={Style.categorySubContainer}>
 
         {
-          product?.map((val) => {
+          // product?.map((val) => {
+          data?.map((val) => {
             return (
-              <div className={Style.cardContainer} onClick={() => navigate('/details')}>
+              <div className={Style.cardContainer} onClick={() => navigate(`/details/${val.id}`)}>
                 <img src={val.img} alt="" style={{ width: '240px', height: '243px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px' }} />
                 <p className={Style.categoryName}>
                   {val.name}
@@ -45,7 +42,6 @@ function BaptismItems({ product }) {
               </div>
             )
           })
-
         }
 
       </div>

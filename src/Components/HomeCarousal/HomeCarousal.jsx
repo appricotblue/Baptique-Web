@@ -7,47 +7,39 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import img from '../../assets/png/HomeBaground.png'
 
 
-const HomeCarousal = () => {
+const HomeCarousal = ({ banner }) => {
 
-  const [banner, setBanner] = useState('')
-
-  const getBannerDetails = async () => {
-    const response = await getBanner()
-    setBanner(response)
-    console.log(response, 'resp------')
-  }
-
+  const [bannerDetails, setBannerDetails] = useState([])
 
   useEffect(() => {
-    getBannerDetails()
-  }, [])
+    setBannerDetails(banner)
+  }, [banner])
 
   return (
     <div className={Style.carousalContainer}>
 
-      <HomeHeader />
+      {/* <HomeHeader /> */}
 
       {/* <div className={Style.offerContainer}>
         <p className={Style.baptismText}>Baptism Collections</p>
         <div className={Style.line} />
-        <p className={Style.offerText}>20% OFF</p>
+, background:'background: linear-gradient(0deg, rgba(217, 217, 217, 0) 0%, #F4F4F4 87.14%);'        <p className={Style.offerText}>20% OFF</p>
       </div> */}
 
       <div>
+        <div style={{ position: 'absolute', zIndex: '999', width: '100%', }}>
+          <HomeHeader />
+        </div>
+
         <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} stopOnHover={false}>
 
-          <div>
-            <img src={img} alt="" />
-            <p className='legend'>test</p>
-          </div>
-          <div>
-            <img src={img} alt="" />
-            <p className='legend'>test</p>
-          </div>
-          <div>
-            <img src={img} alt="" />
-            <p className='legend'>test</p>
-          </div>
+          {bannerDetails?.map((item, ind) => (
+            <div key={ind}>
+              <img src={item.image} />
+              <p className='legend'>{item.description}</p>
+            </div>
+          ))}
+
         </Carousel>
       </div>
     </div>

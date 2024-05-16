@@ -27,7 +27,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomeScreen />}></Route>
-        <Route path="/details" element={<ProductDetails />}></Route>
+        <Route path="/details/:id" element={<ProductDetails />}></Route>
         <Route path="/prebook" element={<PreBook />}></Route>
         <Route path="/myOrders" element={<MyOrders />}></Route>
         <Route path="/checkout" element={<CheckoutScreen />}></Route>
