@@ -37,7 +37,6 @@ export const ChatModal = ({ open, setOpen }) => {
         setSelectedValue(event.target.value);
     };
 
-    console.log(selectedValue);
 
     return (
         <div>

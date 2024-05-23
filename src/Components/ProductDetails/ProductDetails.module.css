@@ -69,15 +69,16 @@
 }
 
 .colorContainer {
-  height: 45px;
-  width: 45px;
-  background-color: #fcdaff;
+  height: 30px;
+  width: 65px;
+  background-color: #E1F3F2;
   border-radius: 23px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-right: 10px;
   padding: 10px;
+  font-weight :500;
 }
 
 .headerText {

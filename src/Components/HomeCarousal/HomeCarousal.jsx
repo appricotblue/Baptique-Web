@@ -7,13 +7,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import img from '../../assets/png/HomeBaground.png'
 
 
-const HomeCarousal = ({ banner }) => {
+const HomeCarousal = ({ banners }) => {
 
-  const [bannerDetails, setBannerDetails] = useState([])
 
-  useEffect(() => {
-    setBannerDetails(banner)
-  }, [banner])
 
   return (
     <div className={Style.carousalContainer}>
@@ -27,10 +23,10 @@ const HomeCarousal = ({ banner }) => {
       </div> */}
 
       <div>
-        <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} stopOnHover={false}>
+        <Carousel autoPlay interval={2000} infiniteLoop showThumbs={false} stopOnHover={false} showStatus={false} showArrows={false} >
 
-          {bannerDetails?.map((item, ind) => (
-            <div key={ind}>
+          {banners?.map((item, ind) => (
+            <div key={ind} style={{ height: '100vh' }}>
               <img src={item.image} />
               <p className='legend'>{item.description}</p>
             </div>

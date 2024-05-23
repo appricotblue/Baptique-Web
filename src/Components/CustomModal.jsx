@@ -22,7 +22,7 @@ const style = {
   bgcolor: "background.paper",
   boxShadow: 18,
   p: 4,
-  minWidth:'350px',
+  minWidth: '350px',
   borderRadius: "30px",
 };
 
@@ -36,7 +36,6 @@ export const CustomModal = ({ open, setOpen }) => {
     setSelectedValue(event.target.value);
   };
 
-  console.log(selectedValue);
 
   return (
     <div>
@@ -53,9 +52,9 @@ export const CustomModal = ({ open, setOpen }) => {
                 fontSize: 24,
                 fontWeight: "bold",
                 color: "black",
-                textAlign:'center',
-                marginBottom:'30px',
-                paddingInline:'20px'
+                textAlign: 'center',
+                marginBottom: '30px',
+                paddingInline: '20px'
               }}
             >
               Choose Interest Option

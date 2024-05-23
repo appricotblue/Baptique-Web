@@ -15,9 +15,10 @@ const data = [
   { name: 'Princess Bow Dress', price: '₹1200', img: BaptismPNG2 },]
 
 
-function BaptismItems({ product }) {
+function BaptismItems({ prod }) {
 
   const navigate = useNavigate()
+
 
   return (
     <div className={Style.baptismContainer}>
@@ -28,16 +29,15 @@ function BaptismItems({ product }) {
       <div className={Style.categorySubContainer}>
 
         {
-          // product?.map((val) => {
-          data?.map((val) => {
+          prod?.map((val) => {
             return (
               <div className={Style.cardContainer} onClick={() => navigate(`/details/${val.id}`)}>
-                <img src={val.img} alt="" style={{ width: '240px', height: '243px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px' }} />
+                <img src={val?.image} alt="" style={{ width: '247px', height: '243px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px' }} />
                 <p className={Style.categoryName}>
-                  {val.name}
+                  {val?.name}
                 </p>
                 <p className={Style.categoryRate}>
-                  {val.price}
+                  {val?.sellingPrice}
                 </p>
               </div>
             )

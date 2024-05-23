@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ChatModal } from "../ChatModal";
 import { Box, Chip, IconButton } from "@mui/material";
 import { Minus, Plus } from "@phosphor-icons/react";
+import { alignProperty } from "@mui/material/styles/cssUtils";
 
 const sizes = ["Small", "Medium", "Large"];
 
@@ -24,12 +25,13 @@ const ageGroup = [
   "3 Year",
 ];
 
-function ProductDetail() {
+function ProductDetail({ item }) {
   const [counter, setCounter] = useState(1);
   const [openModal, setOpenModal] = useState(false);
   const [openChat, setOpenChat] = useState(false);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
   const [selectedAge, setSelectedAge] = useState(ageGroup[0]);
+
 
   const navigate = useNavigate();
 
@@ -66,7 +68,7 @@ function ProductDetail() {
             }}
           >
             <div className={Style.contentRow}>
-              <p className={Style.headerText}>Princes Bow Dress</p>
+              <p className={Style.headerText}>{item?.products[0]?.name}</p>
               <p className={Style.headerText}>₹1200</p>
               <p className={Style.collectionText}>Baptism Collection</p>
             </div>
@@ -92,7 +94,7 @@ function ProductDetail() {
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
-              {sizes?.map((size, ind) => (
+              {item?.campaignAttributes?.map((size, ind) => (
                 <div key={ind} onClick={() => setSize(size)}>
                   <Chip
                     sx={{
@@ -101,14 +103,14 @@ function ProductDetail() {
                       color: selectedSize === size && "#60A7A1",
                       fontWeight: 600,
                     }}
-                    label={size}
+                    label={size?.size}
                   />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={Style.sizeRow}>
+          {/* <div className={Style.sizeRow}>
             <p className={Style.headerText}>Age</p>
             <div
               style={{
@@ -132,15 +134,27 @@ function ProductDetail() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className={Style.sizeRow}>
             <p className={Style.headerText}>Select Color</p>
           </div>
           <div className={Style.colorRow}>
-            <div className={Style.colorContainer}></div>
-            <div className={Style.colorContainer}></div>
-            <div className={Style.colorContainer}></div>
+            {item?.campaignAttributes?.map((val) => {
+              return (
+                <div className={Style.colorContainer}>
+                  <p>
+                    {val.colour}
+                  </p>
+                </div>
+              )
+
+            }
+            )
+
+            }
+
+
           </div>
           <CustomButton
             text={"Show Intrest"}
