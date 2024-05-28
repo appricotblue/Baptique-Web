@@ -19,7 +19,8 @@ function HomeCategory({ category }) {
         {
           category?.map((val) => {
             return (
-              <div key={val.id} className={Style.cardContainer}>
+
+              <div key={val.id} className={Style.cardContainer} onClick={() => { console.log('vallllllll', val.id); }}>
                 {val.image ?
                   <img src={val.image} alt="" style={{ width: '135px', height: '130px', borderRadius: '10px' }} />
                   :

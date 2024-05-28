@@ -19,7 +19,7 @@ function BaptismItems({ prod }) {
 
   const navigate = useNavigate()
 
-
+  const selectedId = 7;
   return (
     <div className={Style.baptismContainer}>
       <div className={Style.row}>
@@ -27,9 +27,8 @@ function BaptismItems({ prod }) {
         <p className={Style.viewAllText}>View All</p>
       </div>
       <div className={Style.categorySubContainer}>
-
         {
-          prod?.map((val) => {
+          prod?.filter(val => val?.categoriesId === selectedId)?.map((val) => {
             return (
               <div className={Style.cardContainer} onClick={() => navigate(`/details/${val.id}`)}>
                 <img src={val?.image} alt="" style={{ width: '247px', height: '243px', borderTopRightRadius: '10px', borderTopLeftRadius: '10px' }} />
